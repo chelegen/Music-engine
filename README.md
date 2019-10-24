@@ -52,3 +52,11 @@
 >5. Item-Item矩阵：{item1,item2,score}(MapReduce)
 >6. **gen_reclist.py**
 >7. cf_reclist.redis
+
+      key = '_'.join([userid, itemid])
+        if key not in key_dict:
+            key_dict[key] = []
+        key_dict[key].append((int(watch_len), int(total_timelen)))
+        
+#### 排序模型：sklearn
+鸢尾花分类案例 => 获得排序模型
