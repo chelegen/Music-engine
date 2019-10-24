@@ -60,3 +60,21 @@
         
 #### 排序模型：sklearn
 鸢尾花分类案例 => 获得排序模型
+>**lr_iris.py**
+X:花   y:分类(softmax)
+1. （改）=> lr_out_model.py
+2. （改）=> lr.py 
+3. 维护了4个list { target_list:目标,每个样本标签 ， fea_row_list:行,row_index ， fea_col_list:列,feature  ， data_list:分数,score  }
+4. numpy数组
+5. import scipy.sparse 稀疏矩阵 csr_matrix
+6. 训练集，测试集
+7. model.w / model.b （二分类）
+
+
+数据相关： 
+- label,特征列表
+- y(TAGS),X(样本)
+> X -> model 预测 -> Y -> 排序
+
+**权重：tf-idf值**
+
