@@ -19,10 +19,23 @@
 
 #### 数据
 1. 用户：userId / sex / age / inCome / region
-- user.profile.data
 2. 物品：itemId / itemName / itemDesc /  duration(时长) / region / tag（标签)
-- music_meta
 3. 用户行为：userid / itemid / user_item_duration / time（点击时间）
-- user_watch_pref.sml
-4. 融合：pre_base_data / gen_base.py => merge_base.data
+4. 融合：gen_base.py => merge_base.data
+>解决方法：
+>1. music元数据 => 字典
+>2. 用户画像 => 字典
+>3. 用户行为 => 解析userid,itemid => 拼接 => finish
 
+#### Content-Based ( CB => 基于内容的推荐 )
+1. 希望输出：token，itemid，score形式训练数据
+>token：借用jieba粉刺，对name等字段进行分词
+2. 通过训练数据得到item，item相似矩阵
+>1. **gen_cb_train.py**
+>2. itemid去重
+>3. 对字段分词
+>4. 权重：{name:0.9,desc:0.1,tags:0.05}
+>5. token字典：{token:item,score}
+>6. Item-Item矩阵：{item1,item2,score}(MapReduce)
+>6. **gen_reclist.py**
+>7. cb_reclist.redis
