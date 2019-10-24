@@ -5,7 +5,7 @@
 
 ## 笔记：
 
-#### 1.**大致流程**
+#### 1. **大致流程**
 1. 解析请求：userid，itemid
 2. 加载模型：加载 model.w ， model.b
 3. 检索候选集合：分别用cb和cf去redis检索，得到 {item->item,item} 推荐候选
@@ -17,7 +17,7 @@
 9. 验证推荐
 
 
-#### 2.数据
+#### 2. 数据
 1. 用户：userId / sex / age / inCome / region
 2. 物品：itemId / itemName / itemDesc /  duration(时长) / region / tag（标签)
 3. 用户行为：userid / itemid / user_item_duration / time（点击时间）
@@ -28,7 +28,7 @@
 >3. 用户行为 => 解析userid,itemid => 拼接 => finish
 
 
-#### 3.1[召回]Content-Based ( CB => 基于内容的推荐 )
+#### 3.1 [召回] Content-Based ( CB => 基于内容的推荐 )
 1. 希望输出：token，itemid，score形式
 >token：借用jieba粉刺，对name等字段进行分词
 2. 通过训练数据得到item，item相似矩阵
@@ -42,7 +42,7 @@
 >7. cb_reclist.redis
 
 
-#### 3.2[召回]Collaborative Filtering( CF => 协同过滤算法 )
+#### 3.2 [召回] Collaborative Filtering ( CF => 协同过滤算法 )
 1. 希望输出：userid，itemid，score
 2. 通过训练数据得到item，item相似矩阵
 >1. **gen_cf_train.py / merge_base.data**
@@ -58,7 +58,7 @@
             key_dict[key] = []
         key_dict[key].append((int(watch_len), int(total_timelen)))
         
-#### 4.排序模型：sklearn
+#### 4. 排序模型：sklearn
 鸢尾花分类案例 => 获得排序模型
 >**lr_iris.py**
 X:花   y:分类(softmax)
