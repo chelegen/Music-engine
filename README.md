@@ -70,6 +70,7 @@ X:花   y:分类(softmax)
 6. 训练集，测试集
 7. model.w / model.b （二分类）
 
+![](img.png)
 
 数据相关： 
 - label,特征列表
