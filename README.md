@@ -30,7 +30,7 @@
 
 #### 3.1 [召回] Content-Based ( CB => 基于内容的推荐 )
 1. 希望输出：token，itemid，score形式
->token：借用jieba粉刺，对name等字段进行分词
+>token：借用jieba分词，对name等字段进行分词
 2. 通过训练数据得到item，item相似矩阵
 >1. **gen_cb_train.py**
 >2. itemid去重
